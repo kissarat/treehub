@@ -13,6 +13,7 @@ module.exports = {
 
   excludes: [
     /treehub\.\w+$/,
+    /^\./,
     'cache'
   ]
 }
