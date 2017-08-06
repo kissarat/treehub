@@ -8,12 +8,16 @@ module.exports = {
 
   database: {
     dialect: 'sqlite',
-    storage: 'treehub.sqlite'
+    storage: 'treehub.sqlite',
+    freezeTableName: true
   },
 
   excludes: [
     /treehub\.\w+$/,
-    /^\./,
-    'cache'
+    '/node_modules/',
+    '/vendor/',
+    '/.',
+    '/cache/',
+    /\.(jpg|png|gif|mp3|pdf|dat|bz2|sql|png|swf|eot|woff2?|ttf|min\.js|gz|vtt)$/
   ]
 }
