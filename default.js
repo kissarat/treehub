@@ -14,10 +14,7 @@ module.exports = {
 
   excludes: [
     /treehub\.\w+$/,
-    '/node_modules/',
-    '/vendor/',
     '/.',
-    '/cache/',
-    /\.(jpg|png|gif|mp3|pdf|dat|bz2|sql|png|swf|eot|woff2?|ttf|min\.js|gz|vtt)$/
+    // /\.(jpg|png|gif|mp3|pdf|dat|bz2|sql|png|swf|eot|woff2?|ttf|min\.js|gz|vtt)$/
   ]
 }
