@@ -27,7 +27,7 @@ module.exports = class Node {
           const node = new Node(name, this)
           for (const ex of excludes) {
             if (node.test(ex)) {
-              break name
+              continue name
             }
             await node.getStat()
           }
@@ -42,11 +42,18 @@ module.exports = class Node {
     const list = await this.list(options)
     for (const node of list) {
       nodes.push(node)
-      console.log(node.path)
       if (node.stat.isDirectory()) {
         await node.visit(options, nodes)
       }
     }
+  }
+
+  sizeScale() {
+    return Math.floor(Math.log2(this.stat.size))
+  }
+
+  compare(node) {
+    return this.sizeScale() - node.sizeScale() || this.path.localeCompare(node.path)
   }
 
   getStat(path = this.path) {

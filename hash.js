@@ -1,5 +1,6 @@
 const crypto = require('crypto')
 const algorithms = require('./algorithms')
+const fs = require('fs')
 
 module.exports = class Hash {
   constructor(options) {
@@ -16,9 +17,7 @@ module.exports = class Hash {
         }
         while (await this.updateChunk(fd)) {
         }
-        const d = this.hash.digest()
-        console.log(d.toString('hex'))
-        resolve(d)
+        resolve(this.hash.digest())
       })
     })
   }
